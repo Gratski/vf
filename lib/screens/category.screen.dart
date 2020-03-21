@@ -17,13 +17,16 @@ class CategoryScreen extends StatelessWidget {
           SliverAppBar(
             elevation: 0.0,
             centerTitle: false,
-            title: RichText(
-              text: TextSpan(
-                text: '${categoryTitle} \n',
-                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
-                children: <TextSpan>[
-                  TextSpan(text: categoryDescription, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
-                ],
+            title: Hero(
+              tag: 'category',
+              child: RichText(
+                text: TextSpan(
+                  text: '${categoryTitle} \n',
+                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+                  children: <TextSpan>[
+                    TextSpan(text: categoryDescription, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
+                  ],
+                ),
               ),
             ),
             floating: true,

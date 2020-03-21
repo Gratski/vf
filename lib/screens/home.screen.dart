@@ -40,10 +40,10 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   Hero(
                     tag: 'category',
-                    child: CategoryListItem('"https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/3000/2018/12/img-service-personal-training.png"', () => {
+                    child: CategoryListItem('https://image.freepik.com/fotos-gratis/grupo-de-criancas-estao-envolvidas-em-yoga-com-um-treinador-no-oceano_110955-452.jpg', () => {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description', "https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/3000/2018/12/img-service-personal-training.png")))
+                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description', "https://image.freepik.com/fotos-gratis/grupo-de-criancas-estao-envolvidas-em-yoga-com-um-treinador-no-oceano_110955-452.jpg")))
                     })
                   )
                 ],

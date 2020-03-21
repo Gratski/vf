@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        canvasColor: VFColor.white_color,
         fontFamily: 'OpenSans',
         primarySwatch: VFColor.white_color,
         scaffoldBackgroundColor: const Color.fromARGB(1, 255, 255, 255),
