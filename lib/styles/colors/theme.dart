@@ -6,6 +6,23 @@ import 'package:flutter/painting.dart';
 class VFColor {
 
   static const MAIN_BG_COLOR = Colors.white;
+  static const TEXT_RED = Color.fromARGB(1, 250, 0, 0);
+
+  static const Map<int, Color> _red_color =
+    {
+    50:Color.fromRGBO(250, 0, 0, .1),
+    100:Color.fromRGBO(250, 0, 0, .2),
+    200:Color.fromRGBO(250, 0, 0, .3),
+    300:Color.fromRGBO(250, 0, 0, .4),
+    400:Color.fromRGBO(250, 0, 0, .5),
+    500:Color.fromRGBO(250, 0, 0, .6),
+    600:Color.fromRGBO(250, 0, 0, .7),
+    700:Color.fromRGBO(250, 0, 0, .8),
+    800:Color.fromRGBO(250, 0, 0, .9),
+    900:Color.fromRGBO(250, 0, 0, 1),
+    };
+
+  static const MaterialColor red_color = MaterialColor(0xFFFB0102, _red_color);
 
   static const Map<int, Color> _owl_blue_color =
     {

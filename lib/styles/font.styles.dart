@@ -9,4 +9,11 @@ class FontStyles {
     );
   }
 
+  static h4(Color color) {
+    return TextStyle(
+      color: color,
+      fontSize: 15.0
+    );
+  }
+
 }
