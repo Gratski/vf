@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/styles/font.styles.dart';
+import 'package:mobileapp/widgets/image/avatar.dart';
+import 'package:mobileapp/widgets/lists/items/instructor.item.dart';
 
 class CatergoryDetailsScreen extends StatelessWidget {
 
@@ -55,7 +57,33 @@ class CatergoryDetailsScreen extends StatelessWidget {
                         Spacer(flex: 2,)
                       ],
                     ),
-                  )
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, bottom: 20),                    
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: Text('INSTRUTORES')
+                        ), 
+                        Expanded(
+                          flex: 2,                          
+                          child: Text('ver todos', style: TextStyle(color: VFColor.red_color), textAlign: TextAlign.right,)
+                        ),
+                      ],
+                    ),
+                  ),
+                  // lista de instrutores
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg')
+
               ]),
             ),
           )
