@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/screens/category-details.screen.dart';
+import 'package:mobileapp/screens/classes.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/widgets/lists/items/category.item.dart';
 
@@ -51,7 +52,8 @@ class CategoryScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     //MaterialPageRoute(builder: (context) => CategoryScreen(1, 'YOGA', 'category description', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
-                    MaterialPageRoute(builder: (context) => CatergoryDetailsScreen(1, 'YOGA', 'Liberte a sua Mente', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
+                    MaterialPageRoute(builder: (context) => ClassesScreen('YOGA')))
+                    //MaterialPageRoute(builder: (context) => CatergoryDetailsScreen(1, 'YOGA', 'Liberte a sua Mente', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
                 }),
               ]),
             )
