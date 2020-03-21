@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/screens/classes.screen.dart';
 import 'package:mobileapp/screens/instructor.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/styles/font.styles.dart';
@@ -46,7 +47,9 @@ class CatergoryDetailsScreen extends StatelessWidget {
                           flex: 2,
                           child: FlatButton(
                             onPressed: () => {
-
+                              Navigator.push(context, 
+                                MaterialPageRoute(builder: (context) => ClassesScreen(title))
+                              )
                             },
                             child: Text('Aulas', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
                             color: VFColor.red_color,
