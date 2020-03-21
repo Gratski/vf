@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
+import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
 
 class ClassesScreen extends StatelessWidget {
@@ -46,46 +47,17 @@ class ClassesScreen extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         flex: 4,
-                        child: FlatButton(
-                            onPressed: () => {
-
-                            },
-                            child: Text('MANHÃ', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-                            color: VFColor.red_color,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0)
-                            ),
-                          ),
+                        child: VFFlatButton((){}, 'MANHÃ', true)
                       ),
                       Spacer(),
                       Expanded(
                         flex: 4,
-                        child: FlatButton(
-                            onPressed: () => {
-
-                            },
-                            child: Text('TARDE', style: TextStyle(fontWeight: FontWeight.bold, color: VFColor.red_color)),
-                            color: VFColor.white_color,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(color: VFColor.red_color)
-                            ),
-                          ),
+                        child: VFFlatButton((){}, 'TARDE', false)
                       ),
                       Spacer(),
                       Expanded(
                         flex: 4,
-                        child: FlatButton(
-                            onPressed: () => {
-
-                            },
-                            child: Text('NOITE', style: TextStyle(fontWeight: FontWeight.bold, color: VFColor.red_color)),
-                            color: VFColor.white_color,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(color: VFColor.red_color)
-                            ),
-                          ),
+                        child: VFFlatButton((){}, 'TARDE', false)
                       ),
                     ],
                   ),

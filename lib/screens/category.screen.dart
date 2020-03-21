@@ -21,9 +21,7 @@ class CategoryScreen extends StatelessWidget {
           SliverAppBar(
             elevation: 0.0,
             centerTitle: false,
-            title: Hero(
-              tag: 'category',
-              child: RichText(
+            title: RichText(
                 text: TextSpan(
                   text: '${categoryTitle} \n',
                   style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
@@ -32,7 +30,6 @@ class CategoryScreen extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
             floating: true,
             expandedHeight: 40.0,
             /*
@@ -46,15 +43,18 @@ class CategoryScreen extends StatelessWidget {
               ),
               */
           ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              CategoryListItem('YOGA', 'https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg', () => {
-                Navigator.push(
-                  context,
-                  //MaterialPageRoute(builder: (context) => CategoryScreen(1, 'YOGA', 'category description', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
-                  MaterialPageRoute(builder: (context) => CatergoryDetailsScreen(1, 'YOGA', 'Liberte a sua Mente', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
-              }),
-            ]),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                CategoryListItem('YOGA', 'https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg', () => {
+                  Navigator.push(
+                    context,
+                    //MaterialPageRoute(builder: (context) => CategoryScreen(1, 'YOGA', 'category description', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
+                    MaterialPageRoute(builder: (context) => CatergoryDetailsScreen(1, 'YOGA', 'Liberte a sua Mente', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
+                }),
+              ]),
+            )
           )
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:mobileapp/screens/classes.screen.dart';
 import 'package:mobileapp/screens/instructor.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/styles/font.styles.dart';
+import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
 import 'package:mobileapp/widgets/image/avatar.dart';
 import 'package:mobileapp/widgets/lists/items/instructor.item.dart';
 
@@ -45,18 +46,11 @@ class CatergoryDetailsScreen extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           flex: 2,
-                          child: FlatButton(
-                            onPressed: () => {
-                              Navigator.push(context, 
+                          child: VFFlatButton(() => {
+                            Navigator.push(context, 
                                 MaterialPageRoute(builder: (context) => ClassesScreen(title))
                               )
-                            },
-                            child: Text('Aulas', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-                            color: VFColor.red_color,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)
-                            ),
-                          ),
+                            }, 'AULAS', false)
                         ), 
                         Spacer(flex: 2,)
                       ],

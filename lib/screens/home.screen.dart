@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:font_awesome_flutter/fa_icon.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapp/globals/global_vars.dart';
 import 'package:mobileapp/screens/category.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
-import 'package:mobileapp/styles/font.styles.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
 import 'package:mobileapp/widgets/lists/items/category.item.dart';
 
@@ -13,74 +14,73 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: VFColor.MAIN_BG_COLOR, 
-      body: Padding(
-        padding: EdgeInsets.only(top:80, left: 20, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Flexible(
-              flex: 1,
-              child: Text('Lista de Aulas', style: FontStyles.h1(Colors.black),),
-            ),
-            Flexible(
-              flex: 1,
-              child: Text('escolha a aula em que quer participar', style: FontStyles.h4(Colors.black),),
-            ),
-            Flexible(
-              flex: 3,
-              child: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: AvatarList()
-              )
-            ),
-            Flexible(
-              flex: 10,
-              child: ListView(
-                scrollDirection: Axis.vertical,
-                children: <Widget>[
-                  Hero(
-                    tag: 'category',
-                    child: CategoryListItem('MIND', 'https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg', () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'MIND', 'category description', "https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg")))
-                    }),
-                  ),
-                  Hero(
-                    tag: 'category1',
-                    child: CategoryListItem('HIIT', 'https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg', () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'HIIT', 'category description', "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg")))
-                    }),
-                  )
-                ],
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            centerTitle: true,
+            title: Hero(
+              tag: 'category',
+              child: RichText(
+                text: TextSpan(
+                  text: 'VirtualFit \n',
+                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+                  children: <TextSpan>[
+                    TextSpan(text: 'a tua aplicação fit!', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
+                  ],
+                ),
               ),
-            )
-          ],
-        ),
+            ),
+            floating: true,
+            expandedHeight: 40.0,
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              height: 100.0,
+              child: AvatarList()
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                CategoryListItem('MIND', 'https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg', () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description', "https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg")))
+                  }),
+                CategoryListItem('HIIT', 'https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg', () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CategoryScreen(1, 'HIIT', 'category description', "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg")))
+                  }),
+              ]),
+            ),
+          ),
+          
+        ]
       ),
       bottomNavigationBar: Observer(
         builder: (_) => BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          title: Text('perfil', style: TextStyle(color: Color.fromARGB(1, 250, 0, 0))),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.business),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.school),
-          title: Text('Aulas'),
-        ),
-      ],
-      currentIndex: navStore.bottomNavIndex,
-      selectedItemColor: Colors.amber[800],
-      onTap: _onItemTapped,
-    ),
-      ),
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.user),
+              title: Text('perfil'),
+            ),
+            BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.cubes),
+              title: Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.heart),
+              title: Text('Aulas'),
+            ),
+          ],
+          currentIndex: navStore.bottomNavIndex,
+          selectedItemColor: VFColor.red_color,
+          elevation: 1.0,
+          onTap: _onItemTapped,
+        )
+      )
     );
   }
 
