@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/styles/colors/theme.dart';
+import 'package:mobileapp/widgets/lists/items/category.item.dart';
 
 class CategoryScreen extends StatelessWidget {
 
@@ -12,6 +14,7 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: VFColor.MAIN_BG_COLOR,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -30,7 +33,8 @@ class CategoryScreen extends StatelessWidget {
               ),
             ),
             floating: true,
-            expandedHeight: 150.0,
+            expandedHeight: 40.0,
+            /*
             flexibleSpace: Stack(
                 children: <Widget>[
                   Positioned.fill(
@@ -39,35 +43,15 @@ class CategoryScreen extends StatelessWidget {
                   ))
                 ],
               ),
+              */
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              ListTile(leading: Icon(Icons.volume_off), title: Text("Volume Off"),),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_mute), title: Text("Volume Mute")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-              ListTile(leading: Icon(Icons.volume_down), title: Text("Volume Down")),
-
+              CategoryListItem('YOGA', 'https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg', () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CategoryScreen(1, 'YOGA', 'category description', "https://cdn-cv.r4you.co/wp-content/uploads/2018/01/iStock-519860624.jpg")))
+              }),
             ]),
           )
         ],

@@ -40,11 +40,19 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   Hero(
                     tag: 'category',
-                    child: CategoryListItem('https://image.freepik.com/fotos-gratis/grupo-de-criancas-estao-envolvidas-em-yoga-com-um-treinador-no-oceano_110955-452.jpg', () => {
+                    child: CategoryListItem('MIND', 'https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg', () => {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description', "https://image.freepik.com/fotos-gratis/grupo-de-criancas-estao-envolvidas-em-yoga-com-um-treinador-no-oceano_110955-452.jpg")))
-                    })
+                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'MIND', 'category description', "https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg")))
+                    }),
+                  ),
+                  Hero(
+                    tag: 'category1',
+                    child: CategoryListItem('HIIT', 'https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg', () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'HIIT', 'category description', "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg")))
+                    }),
                   )
                 ],
               ),
@@ -61,11 +69,11 @@ class HomeScreen extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.business),
-          title: Text('Aulas'),
+          title: Text('Home'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.school),
-          title: Text('Treinadores'),
+          title: Text('Aulas'),
         ),
       ],
       currentIndex: navStore.bottomNavIndex,

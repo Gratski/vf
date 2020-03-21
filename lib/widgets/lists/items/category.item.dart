@@ -3,10 +3,11 @@ import 'package:mobileapp/styles/colors/theme.dart';
 
 class CategoryListItem extends StatelessWidget {
   
+  final String label;
   final String imgUrl;
   final Function onTap;
 
-  CategoryListItem(this.imgUrl, this.onTap);
+  CategoryListItem(this.label, this.imgUrl, this.onTap);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class CategoryListItem extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: new BorderRadius.all(Radius.circular(20)),
-                child: Text('Mind', style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),),
+                child: Text(label, style: TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),),
               ),
             )
           ],
