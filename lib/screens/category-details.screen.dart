@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/screens/instructor.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/styles/font.styles.dart';
 import 'package:mobileapp/widgets/image/avatar.dart';
@@ -74,6 +75,14 @@ class CatergoryDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   // lista de instrutores
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => InstructorScreen(1, 'Nome de Instrutor', 4.5, 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg')))
+                    },
+                    child: InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  ),
                   InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
                   InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
                   InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),

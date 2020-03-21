@@ -16,4 +16,11 @@ class FontStyles {
     );
   }
 
+  static h2(Color color) {
+    return TextStyle(
+      color: color,
+      fontSize: 22.0
+    );
+  }
+
 }
