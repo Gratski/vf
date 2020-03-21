@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/screens/class.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
@@ -62,7 +63,11 @@ class ClassesScreen extends StatelessWidget {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () => {},
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassScreen())
+                      )
+                    },
                     child: Container(
                       height: 150,
                       width: 70,
