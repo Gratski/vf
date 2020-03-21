@@ -5,8 +5,9 @@ class CategoryScreen extends StatelessWidget {
   final int categoryId;
   final String categoryTitle;
   final String categoryDescription;
+  final String categoryImgUrl;
 
-  CategoryScreen(this.categoryId, this.categoryTitle, this.categoryDescription);
+  CategoryScreen(this.categoryId, this.categoryTitle, this.categoryDescription, this.categoryImgUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,14 @@ class CategoryScreen extends StatelessWidget {
             ),
             floating: true,
             expandedHeight: 150.0,
+            flexibleSpace: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                      child: Image.network(categoryImgUrl,
+                      fit: BoxFit.cover,
+                  ))
+                ],
+              ),
           ),
           SliverList(
             delegate: SliverChildListDelegate([

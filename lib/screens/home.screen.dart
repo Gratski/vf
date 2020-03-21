@@ -40,10 +40,10 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   Hero(
                     tag: 'category',
-                    child: CategoryListItem('https://via.placeholder.com/150', () => {
+                    child: CategoryListItem('"https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/3000/2018/12/img-service-personal-training.png"', () => {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description')))
+                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description', "https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/3000/2018/12/img-service-personal-training.png")))
                     })
                   )
                 ],
