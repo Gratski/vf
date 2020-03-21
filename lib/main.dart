@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'OpenSans',
-        primarySwatch: VFColor.owl_blue_dark,
+        primarySwatch: VFColor.white_color,
         scaffoldBackgroundColor: const Color.fromARGB(1, 255, 255, 255),
         backgroundColor: VFColor.MAIN_BG_COLOR
       ),

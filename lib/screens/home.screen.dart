@@ -38,12 +38,14 @@ class HomeScreen extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: <Widget>[
-                  CategoryListItem('https://via.placeholder.com/150', ()=>{
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CategoryScreen()),
-                    )
-                  })
+                  Hero(
+                    tag: 'category',
+                    child: CategoryListItem('https://via.placeholder.com/150', () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description')))
+                    })
+                  )
                 ],
               ),
             )
