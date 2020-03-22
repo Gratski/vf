@@ -1,87 +1,90 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/screens/classes.screen.dart';
+import 'package:mobileapp/screens/instructor.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/styles/font.styles.dart';
+import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
+import 'package:mobileapp/widgets/lists/items/instructor.item.dart';
 
-class ClassScreen extends StatelessWidget {
-  
+class ClassDetailsScreen extends StatelessWidget {
+
+  final int id;
+  final String title;
+  final String subTitle;
+  final String imgUrl;
+
+  ClassDetailsScreen(this.id, this.title, this.subTitle, this.imgUrl);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(10),
-          color: Colors.grey[100],
-          child: Column(
-            children: <Widget>[
-              Row(
+      backgroundColor: VFColor.MAIN_BG_COLOR,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            elevation: 0.0,
+            floating: true,
+            expandedHeight: 250.0,
+            flexibleSpace: Stack(
                 children: <Widget>[
-                  Flexible(
-                    flex: 2,
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      decoration: new BoxDecoration(
-                        color: VFColor.red_color,
-                        image: new DecorationImage(
-                          image: new NetworkImage('https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
-                        border: new Border.all(
-                          color: Colors.red,
-                          width: 2.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      margin: EdgeInsets.only(left: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text('YOGA Class', style: FontStyles.h2(Colors.black)),
-                          Text('Nome de instrutor', style: FontStyles.h4(Colors.black)),
-                          Text('Horário', style: FontStyles.h4(Colors.black)),
-                          Text('KCAL Estimadas', style: FontStyles.h4(Colors.black)),
-                          Text('Duração', style: FontStyles.h4(Colors.black)),
-                        ],
-                      ),
-                    ),
-                  ),
+                  Positioned.fill(
+                      child: Image.network(imgUrl,
+                      fit: BoxFit.cover,
+                  ))
                 ],
               ),
-              Row(
-                children: <Widget>[
-                  Flexible(
-                    flex: 2,
-                    child: Container(),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      margin: EdgeInsets.only(left: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text('YOGA Class', style: FontStyles.h2(Colors.black)),
-                          Text('Nome de instrutor', style: FontStyles.h4(Colors.black)),
-                          Text('Horário', style: FontStyles.h4(Colors.black)),
-                          Text('KCAL Estimadas', style: FontStyles.h4(Colors.black)),
-                          Text('Duração', style: FontStyles.h4(Colors.black)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
           ),
-        ),
+          SliverPadding(
+            padding: EdgeInsets.only(top: 10, right: 10, left: 10),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                  Text(title, style: FontStyles.h1(Colors.black),),
+                  Text(subTitle, style: FontStyles.h4(Colors.black),),
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: VFFlatButton(() => {
+                            Navigator.push(context, 
+                                MaterialPageRoute(builder: (context) => ClassesScreen(title))
+                              )
+                            }, 'AULAS', false)
+                        ), 
+                        Spacer(flex: 2,)
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, bottom: 20),                    
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: Text('INSTRUTORES')
+                        ), 
+                        Expanded(
+                          flex: 2,                          
+                          child: Text('ver todos', style: TextStyle(color: VFColor.red_color), textAlign: TextAlign.right,)
+                        ),
+                      ],
+                    ),
+                  ),
+                  // lista de instrutores
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => InstructorScreen(1, 'Nome de Instrutor', 4.5, 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg')))
+                    },
+                    child: InstructorItem(1, 'Nome de Instrutor', 'https://image.shutterstock.com/image-photo/close-portrait-smiling-handsome-man-260nw-1011569245.jpg'),
+                  ),
+
+              ]),
+            ),
+          )
+        ],
       ),
     );
   }
-
 }

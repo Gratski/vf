@@ -66,7 +66,7 @@ class ClassesScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () => {
                       Navigator.push(context, 
-                        MaterialPageRoute(builder: (context) => ClassScreen())
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
                       )
                     },
                     child: Container(
