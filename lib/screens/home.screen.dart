@@ -11,65 +11,77 @@ import 'package:mobileapp/widgets/lists/items/category.item.dart';
 
 class HomeScreen extends StatelessWidget {
 
+  final Key refreshKey = GlobalKey<RefreshIndicatorState>();
+
+  Future<Null> _onRefresh() async {
+    await Future.delayed(Duration(seconds: 2));
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: VFColor.MAIN_BG_COLOR, 
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            centerTitle: true,
-            title: Hero(
-              tag: 'category',
-              child: RichText(
-                text: TextSpan(
-                  text: 'VirtualFit \n',
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
-                  children: <TextSpan>[
-                    TextSpan(text: 'a tua aplicação fit!', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
-                  ],
+      body: RefreshIndicator(
+        key: refreshKey,
+        color: VFColor.red_color,
+        onRefresh: _onRefresh,
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              centerTitle: true,
+              title: Hero(
+                tag: 'category',
+                child: RichText(
+                  text: TextSpan(
+                    text: 'VirtualFit \n',
+                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+                    children: <TextSpan>[
+                      TextSpan(text: 'a tua aplicação fit!', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
+                    ],
+                  ),
                 ),
               ),
+              floating: true,
+              expandedHeight: 40.0,
             ),
-            floating: true,
-            expandedHeight: 40.0,
-          ),
-          SliverPadding(
-            padding: EdgeInsets.only(left: 10, right: 10),
-            sliver: SliverList(
-              delegate: SliverChildListDelegate([
-                Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  child: Text('a decorrer'),
-                )
-              ])
-            )
-          ),
-          SliverToBoxAdapter(
-            child: Container(
-              height: 100.0,
-              child: AvatarList(new DialogPresenter().showJoinClassDialog)
+            SliverPadding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: Text('a decorrer'),
+                  )
+                ])
+              )
             ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.only(left: 10, right: 10),
-            sliver: SliverList(
-              delegate: SliverChildListDelegate([
-                CategoryListItem('MIND', 'https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg', () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description', "https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg")))
-                  }),
-                CategoryListItem('HIIT', 'https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg', () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CategoryScreen(1, 'HIIT', 'category description', "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg")))
-                  }),
-              ]),
+            SliverToBoxAdapter(
+              child: Container(
+                height: 100.0,
+                child: AvatarList(new DialogPresenter().showJoinClassDialog)
+              ),
             ),
-          ),
-          
-        ]
+            SliverPadding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  CategoryListItem('MIND', 'https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg', () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'Mind', 'category description', "https://cdn.shopify.com/s/files/1/1184/8924/files/Morgan_05_3000x2000_1800x.jpg")))
+                    }),
+                  CategoryListItem('HIIT', 'https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg', () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CategoryScreen(1, 'HIIT', 'category description', "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/03/hiit-workouts-burpee.jpg")))
+                    }),
+                ]),
+              ),
+            ),
+            
+          ]
+        ),
       ),
       bottomNavigationBar: Observer(
         builder: (_) => BottomNavigationBar(
