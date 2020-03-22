@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobileapp/screens/class.screen.dart';
+import 'package:mobileapp/store/classes/class-period.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
 import 'package:mobileapp/widgets/dialogs/join-class.dialog.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
+import 'package:mobileapp/globals/global_vars.dart' as globals;
 
 class ClassesScreen extends StatelessWidget {
 
@@ -45,23 +48,25 @@ class ClassesScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: 10, right: 10),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 4,
-                        child: VFFlatButton((){}, 'MANHÃ', true)
-                      ),
-                      Spacer(),
-                      Expanded(
-                        flex: 4,
-                        child: VFFlatButton((){}, 'TARDE', false)
-                      ),
-                      Spacer(),
-                      Expanded(
-                        flex: 4,
-                        child: VFFlatButton((){}, 'TARDE', false)
-                      ),
-                    ],
+                  Observer(
+                    builder: (_) => Row(
+                      children: <Widget>[
+                        Expanded(
+                            flex: 4,
+                            child: VFFlatButton(globals.classesStore.setSelectedPeriodToMorning, 'MANHÃ', globals.classesStore.selectedPeriod == ClassPeriodEnum.MORNING)
+                        ),
+                        Spacer(),
+                        Expanded(
+                            flex: 4,
+                            child: VFFlatButton(globals.classesStore.setSelectedPeriodToAfternoon, 'TARDE', globals.classesStore.selectedPeriod == ClassPeriodEnum.AFTERNOON)
+                        ),
+                        Spacer(),
+                        Expanded(
+                            flex: 4,
+                            child:  VFFlatButton(globals.classesStore.setSelectedPeriodToNight, 'NOITE', globals.classesStore.selectedPeriod == ClassPeriodEnum.NIGHT)
+                        ),
+                      ],
+                    ),
                   ),
                   GestureDetector(
                     onTap: () => {

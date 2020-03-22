@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapp/globals/global_vars.dart';
 import 'package:mobileapp/screens/category.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
-import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
 import 'package:mobileapp/widgets/dialogs/join-class.dialog.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
 import 'package:mobileapp/widgets/lists/items/category.item.dart';
