@@ -26,6 +26,23 @@ mixin _$ClassesStore on ClassesBase, Store {
     }, _$selectedPeriodAtom, name: '${_$selectedPeriodAtom.name}_set');
   }
 
+  final _$classesAtom = Atom(name: 'ClassesBase.classes');
+
+  @override
+  ObservableList<ClassItem> get classes {
+    _$classesAtom.context.enforceReadPolicy(_$classesAtom);
+    _$classesAtom.reportObserved();
+    return super.classes;
+  }
+
+  @override
+  set classes(ObservableList<ClassItem> value) {
+    _$classesAtom.context.conditionallyRunInAction(() {
+      super.classes = value;
+      _$classesAtom.reportChanged();
+    }, _$classesAtom, name: '${_$classesAtom.name}_set');
+  }
+
   final _$ClassesBaseActionController = ActionController(name: 'ClassesBase');
 
   @override
@@ -59,8 +76,19 @@ mixin _$ClassesStore on ClassesBase, Store {
   }
 
   @override
+  void setClasses(List<String> classes) {
+    final _$actionInfo = _$ClassesBaseActionController.startAction();
+    try {
+      return super.setClasses(classes);
+    } finally {
+      _$ClassesBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
-    final string = 'selectedPeriod: ${selectedPeriod.toString()}';
+    final string =
+        'selectedPeriod: ${selectedPeriod.toString()},classes: ${classes.toString()}';
     return '{$string}';
   }
 }

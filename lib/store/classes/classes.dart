@@ -1,4 +1,5 @@
 import 'package:mobileapp/store/classes/class-period.dart';
+import 'package:mobileapp/widgets/lists/items/class.item.dart';
 import 'package:mobx/mobx.dart';
 
 part 'classes.g.dart';
@@ -10,7 +11,14 @@ abstract class ClassesBase with Store {
   @observable
   ClassPeriodEnum selectedPeriod;
 
-  ClassesBase(this.selectedPeriod);
+  @observable
+  ObservableList<ClassItem> classes = [
+    ClassItem(1)
+  ].asObservable();
+
+  ClassesBase(this.selectedPeriod) {
+    classes.add(ClassItem(1));
+  }
 
   @action
   void setSelectedPeriodToMorning() {
@@ -25,6 +33,11 @@ abstract class ClassesBase with Store {
   @action
   void setSelectedPeriodToNight() {
     this.selectedPeriod = ClassPeriodEnum.NIGHT;
+  }
+
+  @action
+  void setClasses(List<String> classes) {
+    this.classes = ObservableList();
   }
 
 }
