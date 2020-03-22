@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapp/globals/global_vars.dart';
 import 'package:mobileapp/screens/category.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
+import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
+import 'package:mobileapp/widgets/dialogs/join-class.dialog.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
 import 'package:mobileapp/widgets/lists/items/category.item.dart';
 
@@ -33,10 +35,21 @@ class HomeScreen extends StatelessWidget {
             floating: true,
             expandedHeight: 40.0,
           ),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: Text('a decorrer'),
+                )
+              ])
+            )
+          ),
           SliverToBoxAdapter(
             child: Container(
               height: 100.0,
-              child: AvatarList()
+              child: AvatarList(new DialogPresenter().showJoinClassDialog)
             ),
           ),
           SliverPadding(

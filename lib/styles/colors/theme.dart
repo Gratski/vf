@@ -24,6 +24,22 @@ class VFColor {
 
   static const MaterialColor red_color = MaterialColor(0xFFFB0102, _red_color);
 
+  static const Map<int, Color> _green_color =
+    {
+    50:Color.fromRGBO(30,215,96, .1),
+    100:Color.fromRGBO(30,215,96, .2),
+    200:Color.fromRGBO(30,215,96, .3),
+    300:Color.fromRGBO(30,215,96, .4),
+    400:Color.fromRGBO(30,215,96, .5),
+    500:Color.fromRGBO(30,215,96, .6),
+    600:Color.fromRGBO(30,215,96, .7),
+    700:Color.fromRGBO(30,215,96, .8),
+    800:Color.fromRGBO(30,215,96, .9),
+    900:Color.fromRGBO(30,215,96, 1),
+    };
+
+  static const MaterialColor green_color = MaterialColor(0xFF1DB954, _green_color);
+
   static const Map<int, Color> _white_color =
     {
     50:Color.fromRGBO(255,255, 255, .1),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapp/screens/class.screen.dart';
 import 'package:mobileapp/styles/colors/theme.dart';
 import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
+import 'package:mobileapp/widgets/dialogs/join-class.dialog.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
 
 class ClassesScreen extends StatelessWidget {
@@ -37,7 +38,7 @@ class ClassesScreen extends StatelessWidget {
           SliverToBoxAdapter(
             child: Container(
               height: 100.0,
-              child: AvatarList()
+              child: AvatarList(new DialogPresenter().showJoinClassDialog)
             ),
           ),
           SliverPadding(

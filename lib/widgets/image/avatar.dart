@@ -15,14 +15,14 @@ class Avatar extends StatelessWidget {
       width: radius,
       height: radius,
       decoration: new BoxDecoration(
-        color: borderColor,
+        color: Colors.grey[100],
         image: new DecorationImage(
           image: new NetworkImage(imgUrl),
           fit: BoxFit.cover,
         ),
         borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
         border: new Border.all(
-          color: Colors.red,
+          color: borderColor,
           width: 2.0,
         ),
       ),
