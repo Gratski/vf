@@ -7,6 +7,7 @@ import 'package:mobileapp/widgets/buttons/vfflatbutton.dart';
 import 'package:mobileapp/widgets/dialogs/join-class.dialog.dart';
 import 'package:mobileapp/widgets/lists/avatar.list.dart';
 import 'package:mobileapp/globals/global_vars.dart' as globals;
+import 'package:mobileapp/widgets/lists/items/class.item.dart';
 
 class ClassesScreen extends StatelessWidget {
 
@@ -74,81 +75,71 @@ class ClassesScreen extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
                       )
                     },
-                    child: Container(
-                      height: 150,
-                      width: 70,
-                      decoration: new BoxDecoration(
-                        color: Colors.grey[100],
-                        borderRadius: new BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            flex: 2,
-                            child: Container(
-                              padding: EdgeInsets.all(15),
-                              height: 150,
-                              decoration: new BoxDecoration(
-                                borderRadius: new BorderRadius.all(Radius.circular(20)),
-                                image: new DecorationImage(
-                                  image: new NetworkImage('https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            )
-                          ),
-                          Expanded(
-                            flex: 4,
-                            child: Container(
-                              margin: EdgeInsets.only(left: 20),
-                              padding: EdgeInsets.only(top: 20, bottom: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text('YOGA Star', style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Container(
-                                    padding: EdgeInsets.only(top: 10),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text('Horário'),
-                                        Text('6:30 - 7:30')
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.only(top: 10),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Expanded(
-                                          flex: 4,
-                                          child: Row(
-                                            children: <Widget>[
-                                              Text('5 - 20 '),
-                                              Icon(Icons.group, color: VFColor.red_color)
-                                            ],
-                                          )
-                                        ),
-                                        Expanded(
-                                          flex: 4,
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: <Widget>[
-                                              Text('4.5 '),
-                                              Icon(Icons.star, color: VFColor.red_color)
-                                            ],
-                                          )
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              )
-                            )
-                          )
-                        ],
-                      ),
-                    ),
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => ClassDetailsScreen(1, 'YOGA Para toda a Família', 'Atinja o equilibrio', 'https://3.imimg.com/data3/JF/GH/MY-12206553/wp-content-uploads-2013-11-groupclass-720x400-500x500.png'))
+                      )
+                    },
+                    child: ClassItem()
                   )
                 ]
               )
